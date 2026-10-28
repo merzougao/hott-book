@@ -1,3 +1,5 @@
+{-# OPTIONS --without-K --safe #-}
+
 module Foundations.Homotopy_Type_Theory where
 
 open import Agda.Primitive
@@ -52,16 +54,6 @@ Lemma-2-1-4-iv : (p : a ≡ b)
                 → p • (q • r) ≡ (p • q) • r
 Lemma-2-1-4-iv {A = A} {a} {b} p = ≡-ind {P = P} (λ z c d q r → (refl (q • r))) a b p where
     P = λ a b p → (c d : A) → (q : b ≡ c) → (r : c ≡ d) → p • (q • r) ≡ (p • q) • r
-
--- Eckmann-Hilton --
---------------------
-
--- Loop spaces --
--- Ω : (m : ℕ) → (A : Set n ) → (a : A) → Set n
--- Ω = ℕ-ind (λ A a → a ≡ a) (λ m s → s ≡ s)
-
--- Eckmann-Hilton : (α β : (Ω 2 A a)) → α • β  = β • α
--- TO FINISH --
 
 -- Functions are functors --
 ----------------------------
