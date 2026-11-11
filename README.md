@@ -1,19 +1,19 @@
 # HoTT Book: Written Solutions and Agda Formalization
 
-This repository tracks the written and formalization of the book
+This repository collects written solutions to, and an Agda formalization of, the book
 [*Homotopy Type Theory: Univalent Foundations of Mathematics*](https://homotopytypetheory.org/book/):
 
 1. written solutions and explanatory notes; and
 2. a formalization in Agda.
 
-See [`COVERAGE.md`](COVERAGE.md) for an up to date status of the progress.
+See [`COVERAGE.md`](COVERAGE.md) for the current status of each.
 
 ## Repository layout
 
-- [`solutions/`](solutions/) contains the LaTeX source of written solution and expository work as well as its compiled
-  PDF. 
+- [`solutions/`](solutions/) contains the LaTeX source of the written solutions and expository
+  notes, and its compiled PDF.
 - [`formalization/agda/`](formalization/agda/) contains the Agda formalization.
-- [`COVERAGE.md`](COVERAGE.md) tracks the progress of the aformentioned resources.
+- [`COVERAGE.md`](COVERAGE.md) records what each of the two resources covers.
 
 ## Building
 
@@ -48,4 +48,4 @@ make
 ## Authorship and source
 
 The written solutions and Agda development are by Oualid Merzouga. Exercise
-statements and numbering refer to the HoTT Book linked above. Contributions  are welcomed!
+statements and numbering refer to the HoTT Book linked above. Contributions are welcome.
