@@ -1,15 +1,51 @@
-# HoTT Book, Chapters 1–2, in Agda
+# HoTT Book: Written Solutions and Agda Formalization
 
-A self-contained Agda formalization of the type theory of Chapter 1 and of
-Sections 2.1–2.4 of *Homotopy Type Theory: Univalent Foundations of
-Mathematics*. 
+This repository tracks the written and formalization of the book
+[*Homotopy Type Theory: Univalent Foundations of Mathematics*](https://homotopytypetheory.org/book/):
 
-## Contents
+1. written solutions and explanatory notes; and
+2. a formalization in Agda.
 
-- `Foundations/Type_Theory.agda` (Chapter 1): universes; dependent
-  functions; products, Σ-types, coproducts, 𝟘, 𝟙, 𝟚 and ℕ with their
-  recursion and induction principles; identity types and path induction.
-- `Foundations/Homotopy_Type_Theory.agda` (Sections 2.1–2.4): inversion and
-  concatenation of paths and the groupoid laws (Lemma 2.1.4); functoriality
-  of `ap` (Lemma 2.2.2); transport, `lift`, `apd` and Lemmas 2.3.9–2.3.11;
-  homotopies (Lemmas 2.4.2–2.4.3).
+See [`COVERAGE.md`](COVERAGE.md) for an up to date status of the progress.
+
+## Repository layout
+
+- [`solutions/`](solutions/) contains the LaTeX source of written solution and expository work as well as its compiled
+  PDF. 
+- [`formalization/agda/`](formalization/agda/) contains the Agda formalization.
+- [`COVERAGE.md`](COVERAGE.md) tracks the progress of the aformentioned resources.
+
+## Building
+
+Run the following commands from the repository root.
+
+The PDF build requires `pdflatex` and the LaTeX packages imported by the
+source file. Checking the formalization requires the `agda` executable.
+
+### Written solutions
+
+```sh
+make pdf
+```
+
+This builds `solutions/Hott_problems.tex` twice and updates
+`solutions/Hott_problems.pdf`.
+
+### Agda formalization
+
+```sh
+make agda
+```
+
+This checks `formalization/agda/main.agda` and its imported modules.
+
+To check both at the same time, run:
+
+```sh
+make
+```
+
+## Authorship and source
+
+The written solutions and Agda development are by Oualid Merzouga. Exercise
+statements and numbering refer to the HoTT Book linked above. Contributions  are welcomed!

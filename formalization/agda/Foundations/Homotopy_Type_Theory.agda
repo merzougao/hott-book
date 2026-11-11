@@ -13,12 +13,12 @@ variable
     A B C : Set n
     a b c d : A
 
-≡-reflexivity : a ≡ b → b ≡ a
-≡-reflexivity p = ≡-ind (λ z → (refl z)) (src p) (dst p) p
+≡-symmetry : a ≡ b → b ≡ a
+≡-symmetry p = ≡-ind (λ z → (refl z)) (src p) (dst p) p
 
 
 _⁻¹ : a ≡ b → b ≡ a 
-p ⁻¹ = ≡-reflexivity p
+p ⁻¹ = ≡-symmetry p
 
 infix 30 _⁻¹
 
@@ -105,13 +105,9 @@ apd : {Q : A → Set n} (f :  ((x : A)  →  Q x))
 apd {A = A} {Q = Q} f p = ≡-ind {P = λ x y p → Tr Q p (f x) ≡ f y}
                 (λ z → (refl (f z))) (src p) (dst p) p
 
-Tr_const : (p : x ≡ y) → (b : B) → Tr (λ a → B) p b ≡ b
-Tr_const {B = B} p = ≡-ind  {P = λ x y p → (b : B) → Tr (λ a → B) p b ≡ b}
+Tr-const : (p : x ≡ y) → (b : B) → Tr (λ a → B) p b ≡ b
+Tr-const {B = B} p = ≡-ind  {P = λ x y p → (b : B) → Tr (λ a → B) p b ≡ b}
                     (λ z b → (refl b)) (src p) (dst p) p 
-
---lemma2-3-8 : (f : A → B) → (p : x ≡ y) → apd f p ≡ (Tr_const p (f x)) • (ap f p)
---lemma2-3-8 {B = B} f p = ≡-ind  {λ x y p → apd (λ a → B) f p ≡ (Tr_const p (f x)) • (ap f p)}
---                    (λ z → (refl (refl (f z)))) (src p) (dst p) p
 
 lemma-2-3-9 : (Q : A → Set n) → (p : x ≡ y) → (q : y ≡ z) → (u : Q x)
                 → Tr Q q (Tr Q p u) ≡ Tr Q (p • q) u
